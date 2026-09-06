@@ -1,14 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+using ull = unsigned long long int;
+
 int main(){
 
     int t;
     cin >> t;
 
-    int n, k;
+    ull n, k;
     for (int i = 0; i < t; i++){
         cin >> n >> k;
+
+        if (k < n)
+            cout << k << '\n';
 
         
     }
