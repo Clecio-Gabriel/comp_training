@@ -26,7 +26,7 @@ int main(){
 
         cout << bin_search(prices, money) << '\n';
     }
-    
+
 
     return 0;
 }
