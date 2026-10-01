@@ -13,5 +13,5 @@
 - [X] LC_875 - Koko Eating Bananas
 
 ### Aula 5:
-- [ ] LC_200 - Number of Islands
+- [X] LC_200 - Number of Islands
 - [ ] LC_994 - Rotting Oranges
