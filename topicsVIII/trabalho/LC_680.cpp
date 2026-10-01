@@ -1,29 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool validPalindrome(string s) {
-    auto left {s.begin()};
-    auto right {s.end() - 1};
-
-    while(left != right){
-        if (*left == *right){
-            left++; right--;
+class Solution {
+public:
+    bool checkSubStr(const string &inp, int l, int r){
+        while (l < r){
+            if (inp[l++] == inp[r--]) continue;
+            else return false;
         }
-        else{
 
-        }
+        return true;
     }
 
-    return true;
-}
+    bool validPalindrome(string s) {
+        int r = s.length() - 1;
+        bool can_delete = true;
 
-int main(){
+        for (int l = 0; l < r; l++, r--){
+            if (s[l] == s[r]) continue;
+            else{
+                if (can_delete){
+                    int substr_size = r - l;
 
-    string inp;
-    getline(cin >> ws, inp);
+                    // [ 1 ] check if, by deleting the right one, it keeps
+                    //       being a palindrome
+                    if ( checkSubStr(s, l, r-1) ) r--;
+                    // [ 2 ] check if, by deleting the left one, it keeps
+                    //       being a palindrome
+                    else if ( checkSubStr( s, l+1, r) ) l++;
+                    // [ 3 ] if none of it return true, it false by all means
+                    else return false;
 
-    string ret = (validPalindrome(inp)) ? "YES" : "NO";
-    cout << ret << endl;
+                    can_delete = false;
+                }
+                else return false;
+            }
+        }
 
-    return 0;
-}
+        return true;
+
+    }
+};
