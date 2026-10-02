@@ -14,4 +14,4 @@
 
 ### Aula 5:
 - [X] LC_200 - Number of Islands
-- [ ] LC_994 - Rotting Oranges
+- [X] LC_994 - Rotting Oranges
