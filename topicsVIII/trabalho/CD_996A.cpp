@@ -13,8 +13,9 @@ int main(){
     while (it != bills.cend() and n > 0){
         int curr = *it;
         if (curr <= n){
-            n -= curr;
-            notes++;
+            int qnt_n = n/curr;
+            n -= qnt_n * curr;
+            notes += qnt_n;
         }
         else it++;
     }

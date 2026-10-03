@@ -10,7 +10,7 @@ public:
 
         for (int i = 0; i < nums.size(); i++){
             auto check = nums[i];
-            auto complement = target - nums[i];
+            auto complement = target - check;
 
             if (input.count(complement) == 1){
                 ret = {i, input[complement]};
