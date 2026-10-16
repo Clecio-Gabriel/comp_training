@@ -9,23 +9,26 @@ int main(){
     vector<int> books(n);
     for (int i = 0; i < n; i++) cin >> books[i];
 
-    int sum_min = 0;
-    int b_count = 0;
-    int l = 0; int r = n - 1;
-    while (l <= r){
-        if (sum_min >= m or (sum_min + 1) == m) break;
+    int high_bcount = 0;
+    int h = 0; int t;
+    int sum_min, b_count;
 
-        if (books[l] <= books[r]){
-            sum_min += books[l++];
+    while (h < n){
+        b_count = 0; sum_min = 0;
+        t = h;
+        if (high_bcount > (n - 1 - t)) break;
+        while (t < n){
+            int curr_val = books[t++];
+            if ((sum_min + curr_val) > m) break;
+            sum_min += curr_val;
             b_count++;
         }
-        else if (books[r] < books [l]){
-            sum_min += books[r--];
-            b_count++;
-        }
+        if (b_count > high_bcount)
+            high_bcount = b_count;
+        h++;
     }
 
-    cout << b_count << endl;
+    cout << high_bcount << endl;
 
     return 0;
 }
