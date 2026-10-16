@@ -12,34 +12,27 @@ int main(){
         bars.push_back(aux);
     }
 
-    if (n == 1){
-        cout << 1 << ' ' << 0 << endl;
-        return 0;
-    }
-    if (n == 2){
-        cout << 1 << ' ' << 1 << endl;
-        return 0;
-    }
+    auto ptr_a = bars.begin();
+    auto ptr_b = bars.end() - 1;
 
-    int l = 0; int r = n - 1;
-    while ((l + 1) != r){
+    int A_sum = *ptr_a;
+    int B_sum = *ptr_b;
 
-        if (bars[l] == bars[r]){
-            bars[l++] = 0;
-            bars[r] = 0;
-        }
-        else if (bars[l] < bars[r]){
-            bars[r] -= bars[l];
-            bars[l++] = 0;
-        }
-        else if (bars[r] < bars[l]){
-            bars[l] -= bars[r];
-            bars[r--] = 0;
-        }
+    int a = 0;
+    int b = 0;
 
+    while(ptr_a <= ptr_b){
+        if (A_sum <= B_sum){
+            a++;
+            A_sum += *(++ptr_a);
+        }
+        else{
+            b++;
+            B_sum += *(--ptr_b);
+        }
     }
 
-    cout << ++l << ' ' << ++r << endl;
+    cout << a << ' ' << b << '\n';
 
     return 0;
 }
